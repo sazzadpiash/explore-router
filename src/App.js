@@ -19,6 +19,9 @@ function App() {
           path: "about",
           element: <About></About>
         },
+
+
+        // ai line diye amra kono page a kono data fetch korte pari kono pera charai. Users component er moddhe useLoaderData namer code dekho
         {
           path: 'users',
           loader: async() => {
