@@ -1,8 +1,9 @@
 import './App.css';
-import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './component/Home/Home';
 import About from './component/About/About';
 import Main from './component/Layout/Main';
+import Users from './component/Users/Users';
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,13 @@ function App() {
         {
           path: "about",
           element: <About></About>
+        },
+        {
+          path: 'users',
+          loader: async() => {
+            return fetch('https://jsonplaceholder.typicode.com/users')
+          },
+          element: <Users></Users>
         }
       ]
     },
