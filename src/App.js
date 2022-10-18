@@ -4,6 +4,7 @@ import Home from './component/Home/Home';
 import About from './component/About/About';
 import Main from './component/Layout/Main';
 import Users from './component/Users/Users';
+import UserData from './component/UserData/UserData';
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,13 @@ function App() {
             return fetch('https://jsonplaceholder.typicode.com/users')
           },
           element: <Users></Users>
+        },
+        {
+          path: '/user/:userId',
+          loader: async({params})=> {
+            return fetch('https://jsonplaceholder.typicode.com/users/'+params.userId)
+          },
+          element: <UserData></UserData>
         }
       ]
     },
